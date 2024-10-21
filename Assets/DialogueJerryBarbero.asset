@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87df59c74196eb1489974d473bcb5ad8, type: 3}
+  m_Name: DialogueJerryBarbero
+  m_EditorClassIdentifier: 
+  lines:
+  - text: "\"Alessandro, non ce la faccio pi\xF9. Mediaset mi ha scaricato, il riso
+      Scotti non lo compra pi\xF9 nessuno, e io\u2026 io non sono pi\xF9 lo zio Gerry
+      che tutti conoscevano. Mi sto spegnendo.\""
+    portrait: {fileID: 0}
+  - text: "\"Capisco, Gerry. So che ora tutto sembra crollare intorno a te, ma permettimi
+      di farti notare una cosa: la storia \xE8 piena di uomini e donne che hanno
+      attraversato momenti ben peggiori di questi e sono riusciti a risollevarsi.
+      Pensiamo a Winston Churchill, per esempio. Prima di diventare il grande leader
+      che conosciamo, aveva vissuto una serie di fallimenti personali e politici.
+      Eppure, non si \xE8 mai arreso.\""
+    portrait: {fileID: 0}
+  - text: '"Ma io non sono Churchill, Alessandro... Io sono solo un conduttore televisivo
+      che vendeva riso."'
+    portrait: {fileID: 0}
+  - text: "\"Eppure, Gerry, non sottovalutarti cos\xEC. Non serve essere un grande
+      condottiero per avere un impatto sul mondo. In qualche modo, tu sei stato parte
+      della vita di milioni di italiani per anni. Sei entrato nelle loro case, li
+      hai fatti sorridere. Questo ha un valore enorme, non credi?\""
+    portrait: {fileID: 0}
+  - text: "\"Non lo so, forse hai ragione, ma... tutto \xE8 andato a rotoli cos\xEC
+      in fretta. E poi... io... ho fatto delle cose di cui non vado fiero, Alessandro.
+      Mi sono ridotto a fumarmi crack e ad affogare tutto nell'alcol... Che razza
+      di esempio sono diventato?\""
+    portrait: {fileID: 0}
+  - text: "\"Gerry, la vita \xE8 complessa, e tutti commettiamo errori, grandi e
+      piccoli. Anche nell'antica Roma c'erano uomini di valore che attraversavano
+      momenti di disperazione, eppure non li ricordiamo per quei momenti di debolezza,
+      ma per come si sono rialzati. La chiave non \xE8 non cadere mai, ma avere il
+      coraggio di rialzarsi. Ti sei mai chiesto come vuoi che le persone ti ricordino?\""
+    portrait: {fileID: 0}
+  - text: '"Non lo so, Alessandro. Forse come qualcuno che ha provato a fare del
+      bene. Ma ora non riesco nemmeno a guardarmi allo specchio..."'
+    portrait: {fileID: 0}
+  - text: "\"Ogni grande uomo ha un momento di crisi, Gerry. Guarda, non \xE8 un
+      caso che tu stia attraversando tutto questo. Forse \xE8 un\u2019opportunit\xE0
+      per reinventarti. La storia ci insegna che nulla \xE8 permanente: i fasti finiscono,
+      s\xEC, ma anche i periodi bui. Devi solo fare il primo passo, decidere di voltare
+      pagina. C\u2019\xE8 sempre speranza, Gerry, ma devi volerla tu.\""
+    portrait: {fileID: 0}
+  - text: "\"Hai ragione... Devo fare qualcosa, non posso continuare cos\xEC. Ma
+      \xE8 difficile, Alessandro... \xC8 cos\xEC difficile.\""
+    portrait: {fileID: 0}
+  - text: "\"Lo so, Gerry, lo so. Ma nessuno dice che devi farlo da solo. Chiedi
+      aiuto, parla con chi ti vuole bene. Anche i pi\xF9 grandi eroi della storia
+      non sono mai stati soli. E inizia dalle piccole cose: lascia perdere il crack,
+      metti da parte il bicchiere. Non sar\xE0 facile, ma ogni passo verso il miglioramento
+      ti avvicina a una nuova versione di te stesso.\""
+    portrait: {fileID: 0}
+  - text: "\"S\xEC, lo far\xF2. Lo devo a me stesso. E lo devo anche a te, Alessandro.
+      Grazie... davvero. Non so cosa farei senza di te.\""
+    portrait: {fileID: 0}
+  - text: '"Non devi ringraziarmi, Gerry. Siamo tutti in questa avventura che chiamiamo
+      vita. E ora, facciamo la storia: quella di un grande uomo che ha trovato il
+      coraggio di riprendersi.'
+    portrait: {fileID: 0}
+  - text: "\"Prometto che ci prover\xF2. Basta crack, basta alcol. Lo faccio per
+      me, per chi mi vuole bene. E per te, amico mio.\""
+    portrait: {fileID: 0}
+  - text: "\"\xC8 l'inizio di una nuova era, Gerry. Non deludere il passato, ma soprattutto,
+      non deludere te stesso.\""
+    portrait: {fileID: 0}
