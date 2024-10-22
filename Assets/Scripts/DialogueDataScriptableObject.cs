@@ -13,4 +13,5 @@ public class DialogLine
 {
     public string text;
     public Sprite portrait;
+    public int characterID;
 }

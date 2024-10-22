@@ -1518,7 +1518,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf067076385eadc40972d2c170c0d325, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  portraitImage: {fileID: 1518058120}
+  portraitImage1: {fileID: 105856054}
+  portraitImage2: {fileID: 103056486}
   dialogueText: {fileID: 1361289330}
   dialogueData: {fileID: 11400000, guid: 18f8f61ae47684a42a09edd1d4c28b2c, type: 2}
 --- !u!4 &1952307742
