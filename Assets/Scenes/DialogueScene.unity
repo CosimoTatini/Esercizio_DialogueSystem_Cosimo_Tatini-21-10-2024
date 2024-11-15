@@ -1500,7 +1500,7 @@ GameObject:
   - component: {fileID: 1952307742}
   - component: {fileID: 1952307741}
   m_Layer: 0
-  m_Name: DialoGueDisplayer
+  m_Name: DialogueDisplayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -29,7 +29,7 @@ public class DialogueSystem : MonoBehaviour
             if (_typingCoroutine != null) StopCoroutine(_typingCoroutine);
             DialogLine currentLine = dialogueData.lines[_currentLineIndex];
 
-            if(currentLine.characterID==1)
+            if (currentLine.characterID == 1)
             {
                 SetPortraitVisibility(portraitImage1, true);
                 SetPortraitVisibility(portraitImage2, false);
