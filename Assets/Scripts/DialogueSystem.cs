@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Threading;
+using Cysharp.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,9 +15,20 @@ public class DialogueSystem : MonoBehaviour
     public Image portraitImage2;
     public TextMeshProUGUI dialogueText;
     public DialogueDataScriptableObject dialogueData;
-    private int _currentLineIndex = 0;
-    private bool _isDisplayingText = false;
+    [SerializeField] private int _currentLineIndex = 0;
+    [SerializeField] private bool _isDisplayingText = false;
+    public bool IsDisplayingText {
+        get { return _isDisplayingText; }
+        set
+        {
+            Debug.Log("Is Displaying Text: " + value);
+            _isDisplayingText = value;
+        } }
+        
+
     private Coroutine _typingCoroutine;
+
+    private CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
 
     private void Start()
     {
@@ -26,7 +39,9 @@ public class DialogueSystem : MonoBehaviour
     {
         if (_currentLineIndex < dialogueData.lines.Count)
         {
-            if (_typingCoroutine != null) StopCoroutine(_typingCoroutine);
+            if (IsDisplayingText) 
+                CancelTypingTask();
+            
             DialogLine currentLine = dialogueData.lines[_currentLineIndex];
 
             if (currentLine.characterID == 1)
@@ -39,7 +54,11 @@ public class DialogueSystem : MonoBehaviour
                 SetPortraitVisibility(portraitImage1, false);
                 SetPortraitVisibility(portraitImage2, true);
             }
-            _typingCoroutine = StartCoroutine(TypeLine(dialogueData.lines[_currentLineIndex].text));
+
+            // _typingCoroutine = StartCoroutine(TypeLine(dialogueData.lines[_currentLineIndex].text));
+            // _cancellationTokenSource = new CancellationTokenSource();
+            TypeLineTask(dialogueData.lines[_currentLineIndex].text, _cancellationTokenSource.Token).Forget();
+
             _currentLineIndex++;
         }
 
@@ -48,41 +67,63 @@ public class DialogueSystem : MonoBehaviour
     {
         if (_isDisplayingText)
         {
-            StopCoroutine(_typingCoroutine);
+            CancelTypingTask();
             dialogueText.text = dialogueData.lines[_currentLineIndex - 1].text;
-            _isDisplayingText = false;
+            IsDisplayingText = false;
         }
         else
         {
             DisplayNextLine();
         }
     }
+
     public void PreviousLine()
     {
         if (_currentLineIndex > 1)
         {
             _currentLineIndex -= 2;
-            DisplayNextLine();
 
+            DisplayNextLine();
         }
     }
+
     private void SetPortraitVisibility(Image portrait, bool isActive)
     {
         UnityEngine.Color portraitColor = portrait.color;
         portraitColor.a = isActive ? 1f : 0.5f;
         portrait.color = portraitColor;
     }
-    IEnumerator TypeLine(string line)
+
+    private async UniTask TypeLineTask(string line, CancellationToken cancellationToken)
     {
-        dialogueText.text = "";
-        _isDisplayingText = true;
 
-        foreach (char letter in line.ToCharArray())
+        try
         {
-            dialogueText.text += letter;
-            yield return new WaitForSeconds(0.05f);
-        }
-        _isDisplayingText = false;
+            dialogueText.text = "";
+            IsDisplayingText = true;
 
+            foreach (char letter in line.ToCharArray())
+            {
+                cancellationToken.ThrowIfCancellationRequested();
+                dialogueText.text += letter;
+                await UniTask.WaitForSeconds(0.05f, cancellationToken: cancellationToken);
+            }
+        }
+        catch (Exception ex)
+        {
+            Debug.Log("Ex: " + ex);
+            // IsDisplayingText = false;
+        }
+
+        // IsDisplayingText = false;
+    }
+
+    private void CancelTypingTask()
+    {
+        _cancellationTokenSource.Cancel();
+        _cancellationTokenSource.Dispose();
+        _cancellationTokenSource = new CancellationTokenSource();
+
+        IsDisplayingText = false;
     }
 }
